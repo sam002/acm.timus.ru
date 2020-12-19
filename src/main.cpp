@@ -7,7 +7,7 @@ int main() {
     try {
         std::cout << "Start tasks checks..." << std::endl;
         for (const auto& task_item : tasks) {
-            std::cout << "ID" << task_item.id << std::endl;
+            std::cout << "ID" << task_item.id;
 
             std::stringstream stream_input(task_item.input);
             auto orig_out_rdbuf = std::cout.rdbuf();
@@ -22,12 +22,12 @@ int main() {
             std::cout.rdbuf(orig_out_rdbuf);
             std::string result = stream_output.str();
             if (result != task_item.expected) {
-                std::cout << "Error" << std::endl;
+                std::cout << " Error!" << std::endl;
                 std::cout << "Result : " << std::endl << "\"" << result << "\"" << std::endl;
                 std::cout << "Expected : " << std::endl << "\"" << task_item.expected << "\"" << std::endl;
                 exit(1);
             }
-            std::cout << "Success!" << std::endl;
+            std::cout << " Success." << std::endl;
         }
         std::cout << "Cancel tasks checks..." << std::endl;
     }
